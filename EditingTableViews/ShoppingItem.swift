@@ -14,4 +14,6 @@ struct ShoppingItemFetchingClient {
             ShoppingItem(name: "Fan", price: 8.99)
         ]
     }
+    
 }
+   
