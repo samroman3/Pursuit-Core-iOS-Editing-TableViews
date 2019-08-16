@@ -6,7 +6,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var shoppingItemsTableView: UITableView!
     
+
+    @IBAction func editButton(_ sender: UIButton) {
+        if shoppingItemsTableView.isEditing {
+            sender.setTitle("Edit", for: .normal)
+            shoppingItemsTableView.setEditing(false, animated: true)
+        } else {
+            sender.setTitle("Done", for: .normal)
+        shoppingItemsTableView.setEditing(true, animated: true)
+        }
+    }
     
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shoppingItems.count
@@ -44,6 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         configureShoppingItemsTableView()
         loadShoppingItems()
+        shoppingItemsTableView.isEditing = false //this is false by default
         super.viewDidLoad()
 
     }
